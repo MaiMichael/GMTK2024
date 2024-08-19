@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctsaqvruam8sw"]
+
+[ext_resource type="PackedScene" uid="uid://bw2r183oqb6sn" path="res://scenes/snek_head.tscn" id="1_doslp"]
+[ext_resource type="Script" path="res://snek_player.gd" id="1_wto58"]
+[ext_resource type="PackedScene" uid="uid://db72cafr51yf6" path="res://scenes/snek_body.tscn" id="3_j3i30"]
+
+[node name="snek_player" type="Node2D"]
+position = Vector2(97, 23)
+script = ExtResource("1_wto58")
+
+[node name="snek_head" parent="." instance=ExtResource("1_doslp")]
+position = Vector2(3, 0)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-8, 0)
+rotation = -6.28319
+node_a = NodePath("../snek_head")
+node_b = NodePath("snek_body")
+bias = 0.9
+disable_collision = false
+
+[node name="snek_body" parent="PinJoint2D" instance=ExtResource("3_j3i30")]
+position = Vector2(-11, -1.90735e-06)
+center_of_mass_mode = 1
+inertia = 1000.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="grow" from="snek_head" to="." method="_on_snek_head_grow"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

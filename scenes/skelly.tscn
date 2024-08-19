@@ -4,12 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://yxu8f82evxad" path="res://assets/sprites/Skelly.png" id="1_gcvi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nrc5"]
-size = Vector2(14, 14)
+size = Vector2(16, 14)
 
 [node name="skelly" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_7i3ff")
-mvm_speed = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

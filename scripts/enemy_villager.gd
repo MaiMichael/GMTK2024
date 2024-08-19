@@ -29,3 +29,7 @@ func take_damage():
 	get_node("Sprite2D").modulate = Color.WHITE
 
 	
+
+func _on_area_2d_body_entered(body):
+	if(body.has_method("take_damage")):
+		body.take_damage()

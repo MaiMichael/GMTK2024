@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://db72cafr51yf6"]
+
+[ext_resource type="Texture2D" uid="uid://dujcgeyg2u8xw" path="res://assets/sprites/SnekMiddle.png" id="1_64mo8"]
+[ext_resource type="Script" path="res://scripts/snek_body.gd" id="1_yln2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx8if"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfjw"]
+size = Vector2(12, 18)
+
+[node name="snek_body" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_yln2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_64mo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gx8if")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hcfjw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
