@@ -14,6 +14,10 @@ config/name="GMTK2024"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DamageNumbers="*res://scripts/damage_numbers.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3ryjs8q6ejnw"]
 
 [ext_resource type="Texture2D" uid="uid://cbyhj27r5j16y" path="res://assets/sprites/BlobSplash.png" id="1_2qboj"]
-[ext_resource type="Script" path="res://scenes/blob_splash.gd" id="1_7nxqw"]
+[ext_resource type="Script" path="res://scripts/blob_splash.gd" id="1_7nxqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ownrs"]
 size = Vector2(16, 16)

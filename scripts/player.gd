@@ -6,7 +6,12 @@ var moving = false
 var last_position = self.global_position
 var direction
 
+@onready var anim = $AnimatedSprite2D
+
 var blob_splash = preload("res://scenes/blob_splash.tscn")
+
+func _ready():
+	anim.play("idle")
 
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down")

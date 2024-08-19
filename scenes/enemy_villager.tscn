@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkdxmsive6wri"]
 
 [ext_resource type="Texture2D" uid="uid://1xj0cthvtdbh" path="res://assets/Tilemap/DungeonTilemap_packed.png" id="1_6ws8n"]
-[ext_resource type="Script" path="res://scenes/enemy_villager.gd" id="1_btydw"]
+[ext_resource type="Script" path="res://scripts/enemy_villager.gd" id="1_btydw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmpgl"]
 size = Vector2(16, 15)
@@ -18,3 +18,6 @@ frame = 85
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_cmpgl")
+
+[node name="DamageNumberOrigin" type="Node2D" parent="."]
+position = Vector2(0, -7)
