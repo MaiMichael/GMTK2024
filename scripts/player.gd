@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-var tile_size = 16
+@export var base_mvm_speed = 32
 
-var moving = false
-var last_position = self.global_position
+var last_spawn_position = self.global_position
 var direction
+
+#---------------------------------------------------------------------------------------------
 
 @onready var anim = $AnimatedSprite2D
 
@@ -15,21 +16,37 @@ func _ready():
 
 func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down")
-	
+	spawn_puddle()
 	move()
-	
 
 func move():
-	if direction:
-		if moving == false:
-			moving = true
-			last_position = self.global_position
-			var blob_splash_instance = blob_splash.instantiate()
-			blob_splash_instance.global_position = last_position
-			$"/root/Game/BlobSplashManager".add_child(blob_splash_instance)
-			var tween = create_tween()
-			tween.tween_property(self,"position",position + direction * tile_size, 0.35)
-			tween.tween_callback(move_false)
+	velocity = direction * calculate_speed()
+	move_and_slide()
+	
+func spawn_puddle():
+	var distance = 32 * scale.x
+	if(global_position.x - last_spawn_position.x >= distance || 
+	global_position.y - last_spawn_position.y >= distance ||
+	global_position.x - last_spawn_position.x <= distance ||
+	global_position.y - last_spawn_position.y <= distance):
+		var blob_splash_instance = blob_splash.instantiate()
+		blob_splash_instance.global_position = last_spawn_position
+		blob_splash_instance.global_scale = global_scale
+		$"../BlobSplashManager".add_child(blob_splash_instance)
+		last_spawn_position = self.global_position
 
-func move_false():
-	moving = false
+func _on_area_2d_body_entered(body):
+	if body.has_method("get_eaten"):
+		body.get_eaten()
+		grow_size()
+
+func grow_size():
+	anim.global_scale.x += 1
+	anim.global_scale.y += 1
+
+func calculate_speed()->int:
+	return base_mvm_speed/global_scale.x
+
+func _on_timer_timeout():
+	anim.global_scale.x -= 0.1
+	anim.global_scale.y -= 0.1
