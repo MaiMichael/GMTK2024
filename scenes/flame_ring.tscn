@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://brxsq8aw14n4u"]
+
+[ext_resource type="Script" path="res://rotating_ring.gd" id="1_o31vn"]
+[ext_resource type="PackedScene" uid="uid://c3ryjs8q6ejnw" path="res://scenes/blob_splash.tscn" id="2_ifrd7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ocep"]
+radius = 64.0
+
+[node name="flame_ring" type="Node2D"]
+script = ExtResource("1_o31vn")
+
+[node name="BlobSplash" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(0, -64)
+
+[node name="BlobSplash2" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(17, -62)
+
+[node name="BlobSplash3" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(32, -55)
+
+[node name="BlobSplash4" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(45, -46)
+
+[node name="BlobSplash5" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(55, -32)
+
+[node name="BlobSplash6" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(62, -17)
+
+[node name="BlobSplash7" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(64, 0)
+
+[node name="BlobSplash8" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(62, 17)
+
+[node name="BlobSplash9" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(55, 33)
+
+[node name="BlobSplash10" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(45, 46)
+
+[node name="BlobSplash11" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(32, 56)
+
+[node name="BlobSplash12" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(16, 62)
+
+[node name="BlobSplash13" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(0, 64)
+
+[node name="BlobSplash14" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-17, 62)
+
+[node name="BlobSplash15" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-33, 56)
+
+[node name="BlobSplash16" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-46, 45)
+
+[node name="BlobSplash17" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-56, 32)
+
+[node name="BlobSplash18" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-62, 16)
+
+[node name="BlobSplash19" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-64, 0)
+
+[node name="BlobSplash20" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-62, -17)
+
+[node name="BlobSplash21" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-56, -32)
+
+[node name="BlobSplash22" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-46, -45)
+
+[node name="BlobSplash23" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-46, -45)
+
+[node name="BlobSplash24" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-33, -55)
+
+[node name="BlobSplash25" parent="." instance=ExtResource("2_ifrd7")]
+position = Vector2(-17, -62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4ocep")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctsaqvruam8sw"]
 
 [ext_resource type="PackedScene" uid="uid://bw2r183oqb6sn" path="res://scenes/snek_head.tscn" id="1_doslp"]
-[ext_resource type="Script" path="res://snek_player.gd" id="1_wto58"]
+[ext_resource type="Script" path="res://scripts/snek_player.gd" id="1_wto58"]
 [ext_resource type="PackedScene" uid="uid://db72cafr51yf6" path="res://scenes/snek_body.tscn" id="3_j3i30"]
 
 [node name="snek_player" type="Node2D"]

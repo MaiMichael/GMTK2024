@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://lvkd733pyl13"]
+[gd_scene load_steps=10 format=4 uid="uid://lvkd733pyl13"]
 
 [ext_resource type="TileSet" uid="uid://mj18xyyaijgp" path="res://TileSet/SlimeGame.tres" id="1_7sk2p"]
+[ext_resource type="Script" path="res://scripts/slime_game.gd" id="1_q7df0"]
+[ext_resource type="PackedScene" uid="uid://mvvupj7mun27" path="res://scenes/canvas_layer.tscn" id="2_c8elr"]
 [ext_resource type="Script" path="res://scripts/enemy_spawn_manager.gd" id="3_eo5cq"]
+[ext_resource type="Script" path="res://scripts/follow_camera.gd" id="3_puut6"]
 [ext_resource type="PackedScene" uid="uid://dkdxmsive6wri" path="res://scenes/enemy_villager.tscn" id="4_7psup"]
 [ext_resource type="PackedScene" uid="uid://mcf35ceur77b" path="res://scenes/player.tscn" id="4_aybgr"]
+[ext_resource type="PackedScene" uid="uid://cthpp71jk7rmh" path="res://scenes/pause_menu.tscn" id="6_r001n"]
 
 [sub_resource type="Curve2D" id="Curve2D_jce4v"]
 _data = {
@@ -12,6 +16,9 @@ _data = {
 point_count = 5
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_q7df0")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_c8elr")]
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -25,17 +32,26 @@ tile_set = ExtResource("1_7sk2p")
 
 [node name="BlobSplashManager" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("4_aybgr")]
+[node name="FollowCamera" type="Camera2D" parent="."]
 position = Vector2(1142, 833)
-base_mvm_speed = 400
-scaling_speed = 2.0
-
-[node name="FollowCamera" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
+process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 2416
 limit_bottom = 1616
+position_smoothing_enabled = true
+script = ExtResource("3_puut6")
+
+[node name="PauseMenu" parent="FollowCamera" instance=ExtResource("6_r001n")]
+offset_left = 8.0
+offset_right = 8.0
+
+[node name="Player" parent="." instance=ExtResource("4_aybgr")]
+position = Vector2(1142, 833)
+base_mvm_speed = 120
+scaling_speed = 0.7
+size_to_ascend = 10
 
 [node name="EnemySpawnManager" type="Node2D" parent="."]
 position = Vector2(1655, 1169)

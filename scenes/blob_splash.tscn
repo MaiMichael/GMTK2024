@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ryjs8q6ejnw"]
+[gd_scene load_steps=8 format=3 uid="uid://c3ryjs8q6ejnw"]
 
 [ext_resource type="Script" path="res://scripts/blob_splash.gd" id="1_7nxqw"]
 [ext_resource type="Texture2D" uid="uid://wncs0ea0htbq" path="res://assets/sprites/BlobFire_Sheet.png" id="2_tt2rf"]
+[ext_resource type="AudioStream" uid="uid://2oq6p2vwe1fs" path="res://audio/Start_Fire.wav" id="3_yujwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ownrs"]
 size = Vector2(16, 16)
@@ -43,6 +44,10 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5g3q8")
 frame_progress = 0.0462926
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yujwe")
+pitch_scale = 2.24
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
